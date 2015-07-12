@@ -15,57 +15,63 @@ The first step of the process is to convert the .xlsx into a more friendly forma
 ###Populating the Models
 Once we've created our Restaurant model, we need to populate it with the appropriate entries from the dataset. A Rake task is the perfect candidate for the job:
 
-    require 'csv'
-    task :generate_restaurant_entries_fy14 => :environment do
-      csv_text = File.read('db/data/by-violation/fy14-violations.csv')
-      csv = CSV.parse(csv_text, :headers => true)
-      csv.each do |row|
-        account_number = row[0]
-        if !(Restaurant.exists? account_number: account_number)
-          Restaurant.create(account_number: row[0],
-                            facility_name: row[1],
-                            facility_type: row[3],
-                            address: row[7],
-                            number_of_employees: row[14])
-        end
-      end
+```ruby
+require 'csv'
+task :generate_restaurant_entries_fy14 => :environment do
+  csv_text = File.read('db/data/by-violation/fy14-violations.csv')
+  csv = CSV.parse(csv_text, :headers => true)
+  csv.each do |row|
+    account_number = row[0]
+    if !(Restaurant.exists? account_number: account_number)
+      Restaurant.create(account_number: row[0],
+                        facility_name: row[1],
+                        facility_type: row[3],
+                        address: row[7],
+                        number_of_employees: row[14])
     end
+  end
+end
+```
 
 Remember, we're attempting to create the entries for our Restaurant model, but each entry in the dataset is a single violation. The solution is simple enough: For each violation entry in the dataset, check to see if its Restaurant exists in our model. If it doesn't, create it. Running the above task with `rake generate_restaurant_entries_fy14` populates our Restaurant model with all of the appropriate entries.
 
 Next up is the Violation model. This is a more natural model to populate, seeing as the dataset maps one-to-one with the model. Here's the Rake task:
 
-    require 'csv'
-    task :generate_violation_entries_fy14 => :environment do
-      csv_text = File.open('db/data/by-violation/fy14-violations.csv', "r:ISO-8859-1")
-      csv = CSV.parse(csv_text, :headers => true)
-      csv.each do |row|
-        Violation.create(restaurant_id: row[0],
-                         risk: row[2],
-                         date: DateTime.strptime(row[4], '%m/%d/%Y'),
-                         inspector: row[5],
-                         site_name: row[6],
-                         code: row[8],
-                         weight: row[9],
-                         comment: row[10],
-                         correct_by: row[11],
-                         score: row[12])
-      end
-    end
+```ruby
+require 'csv'
+task :generate_violation_entries_fy14 => :environment do
+  csv_text = File.open('db/data/by-violation/fy14-violations.csv', "r:ISO-8859-1")
+  csv = CSV.parse(csv_text, :headers => true)
+  csv.each do |row|
+    Violation.create(restaurant_id: row[0],
+                     risk: row[2],
+                     date: DateTime.strptime(row[4], '%m/%d/%Y'),
+                     inspector: row[5],
+                     site_name: row[6],
+                     code: row[8],
+                     weight: row[9],
+                     comment: row[10],
+                     correct_by: row[11],
+                     score: row[12])
+  end
+end
+```
 
 ###Display
 With our models created and their entries populated, all that's left is to display them on the site. The only remaining bit of trickery is to group the violations on each restaurant's page in some meaningful way. Each restaurant is inspected a couple times each year, and each inspection generates multiple violations. It makes sense to group the violations according to their inspection date:
 
-    <dl class="dl-horizontal">
-      <% @restaurant.violations.group_by(&:date).each do |date, violations| %>
-        <div class="well">
-          <h5><%= date.strftime("%B %e, %Y") %></h5>
-          <% violations.each do |v| %>
-            <dt><%= v.code %></dt>
-            <dd><%= v.comment %></dd>
-          <% end %>
-        </div>
+```erb
+<dl class="dl-horizontal">
+  <% @restaurant.violations.group_by(&:date).each do |date, violations| %>
+    <div class="well">
+      <h5><%= date.strftime("%B %e, %Y") %></h5>
+      <% violations.each do |v| %>
+        <dt><%= v.code %></dt>
+        <dd><%= v.comment %></dd>
       <% end %>
-    </dl>
+    </div>
+  <% end %>
+</dl>
+```
 
 ###Deployment
