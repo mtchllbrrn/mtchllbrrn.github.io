@@ -75,3 +75,15 @@ With our models created and their entries populated, all that's left is to displ
 ```
 
 ###Deployment
+My initial choice for deployment of HouHealth was [Dokku](https://github.com/progrium/dokku). It's great in theory: Automatic deployment via `git push`, virtual hosts for easy per-app subdomains...  Your own, personal, *cheaper* mini-Heroku. Unfortunately, I found the process troublesome. Here's how it went:
+
+1. Spin up an Ubuntu + Dokku droplet, get my Dokku-PostgreSQL plugin set up, and... The plugin doesn't correctly configure the hostname during database creation. This is a [documented issue](https://github.com/Kloadut/dokku-pg-plugin/issues/69#issuecomment-117430565) without a solution, so far as I can tell. Round two:
+2. Spin up an Ubuntu + Dokku droplet, get a *different* Dokku-PostgreSQL plugin set up, and... Dokku refuses to create my PostgreSQL container. As it turns out, there's an issue with Digital Ocean's Ubuntu + Dokku image.<sup>1</sup> Round three:
+3. Spin up an Ubuntu droplet, *manually* install Dokku, get my Dokku-PostgreSQL plugin set up, and... `/tmp/bashenv.826794096: line 73: 128 Killed setuidgid "$unprivileged_user" "$@"`  I found this error completely indecipherable, and posting to both the DO forums and StackExchange yielded nothing.
+
+*Winner by TKO in the third round: DOKKU.*
+
+I was happy to throw in the towel at this point. I went with a vanilla Docker deployment instead.
+
+---
+<sub>1. Thanks to @savant in Freenode's #dokku channel for his/her help with this!</sub>
