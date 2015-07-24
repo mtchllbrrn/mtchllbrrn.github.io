@@ -8,7 +8,7 @@ title: "Dev Rundown: HouHealth"
 I happened upon this data on [Houston's Open Data Portal](http://data.ohouston.org) during a local civic hackathon. As a Houstonite, there's an unspoken law that I dig good food, so I was excited to check out the health code compliance of my favorite restaurants. However, the experience of browsing this ginormous .xlsx was painful (~100,000 records!), to say the least. Google Drive could hardly load the entire thing. I created HouHealth as a more accessible interface to this data for the everyday user.
 
 ###Overview
-The brunt of the work behind HouHealth involves massaging the datasets into appropriate Rails models. The .xlsx is presented in a per-violation manner: Each row of the .xlsx represents a distinct violation. Each violation includes the restaurant's account number, name, inspection date, and a description of the violation (plus a few other fields that aren't as relevant to our needs). In Rails terms, it makes the most sense to organize this data into a Restaurants model and a Violations model. That is, each Restaurant `has_many` Violations, and each Violation `belongs_to` a Restaurant. This allows us to easily search for a restaurant of interest and to retrieve all of the violations associated with that restaurant.
+The brunt of the work behind HouHealth is munging the datasets into appropriate Rails models. The .xlsx is presented in a per-violation manner: Each row of the .xlsx represents a distinct violation. Each violation includes the restaurant's account number, name, inspection date, and a description of the violation (plus a few other fields that aren't as relevant to our needs). In Rails terms, it makes the most sense to organize this data into a Restaurants model and a Violations model. That is, each Restaurant `has_many` Violations, and each Violation `belongs_to` a Restaurant. This allows us to easily search for a restaurant of interest and to retrieve all of the violations associated with that restaurant.
 
 The first step of the process is to convert the .xlsx into a more friendly format. CSV to the rescue! It's plain text, perfect for parsing into something more useful. I used a combination of [Zamzar](http://www.zamzar.com/convert/xlsx-to-csv/) and [Guerilla Mail](http://guerillamail.com) to convert the dataset without giving up any email information. That might seem roundabout, but I prefer not to download one-off programs (like a file converter) if I can help it.
 
@@ -78,7 +78,6 @@ With our models created and their entries populated, all that's left is to displ
 
 ###Deployment
 
-####Dokku
 My initial choice for deployment of HouHealth was [Dokku](https://github.com/progrium/dokku). It's great in theory: Automatic deployment via `git push`, virtual hosts for easy per-app subdomains...  Your own, personal, *cheaper* mini-Heroku. Unfortunately, I found the process troublesome. Here's how it went:
 
 1. Spin up an Ubuntu + Dokku droplet, get my Dokku-PostgreSQL plugin set up, and... The plugin doesn't correctly configure the hostname during database creation. This is a [documented issue](https://github.com/Kloadut/dokku-pg-plugin/issues/69#issuecomment-117430565) without a solution, so far as I can tell. Round two:
@@ -87,13 +86,7 @@ My initial choice for deployment of HouHealth was [Dokku](https://github.com/pro
 
 *Winner by TKO in the third round: DOKKU.*
 
-I was happy to throw in the towel at this point. I went with a vanilla Docker deployment instead.
-
-####Docker
-This was my first time exploring the world of containers, and it left me very excited. I started by burning through Pluralsight's [Docker course](http://www.pluralsight.com/courses/docker-deep-dive).
-
-####Digital Ocean's Rails Droplet
-Didn't need much, just a little bit of server configuration. Create a non-root user, disable root access via SSH...
+I was happy to throw in the towel at this point. I went with a vanilla Nginx + Passenger deployment instead. I plan to continue exploring Dokku in the future, though.
 
 ---
 <sub>1. Thanks to @savant in Freenode's #dokku channel for his/her help with this!</sub>
