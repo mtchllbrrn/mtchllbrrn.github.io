@@ -28,3 +28,10 @@ author:
 version:             1.0.0
 github:
   repo:              https://github.com/poole/poole
+
+# Navigation bar contents
+pages_list:
+  About: '/about'
+  Blog: '/archive'
+  Resume: '/resume'
+  Projects: '/projects'
