@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Dev Rundown: HouHealth"
+permalink: /houhealth
 ---
 ###Intro
 [HouHealth](http://houhealth.com) makes it easy to browse Houston's restaurants' health code violations. The site was built with Rails and deployed to a Digital Ocean droplet. This post assumes some basic knowledge of Rails, and focuses on the bits that make the development of this app unique.
