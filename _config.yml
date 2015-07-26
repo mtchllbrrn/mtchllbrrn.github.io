@@ -33,5 +33,5 @@ github:
 pages_list:
   About: '/about'
   Blog: '/archive'
-  Resume: '/resume'
-  Projects: '/projects'
+  # Resume: '/resume'
+  # Projects: '/projects'
