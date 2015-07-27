@@ -29,6 +29,9 @@ version:             1.0.0
 github:
   repo:              https://github.com/poole/poole
 
+gems:
+  - jekyll-redirect-from
+
 # Navigation bar contents
 pages_list:
   About: '/about'
