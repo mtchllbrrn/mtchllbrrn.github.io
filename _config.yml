@@ -1,3 +1,10 @@
+# Navigation bar contents
+pages_list:
+  About: '/about'
+  Blog: '/blog'
+  # Resume: '/resume'
+  # Projects: '/projects'
+
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
@@ -25,10 +32,3 @@ github:
 
 gems:
   - jekyll-redirect-from
-
-# Navigation bar contents
-pages_list:
-  About: '/about'
-  Blog: '/blog'
-  # Resume: '/resume'
-  # Projects: '/projects'
