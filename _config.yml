@@ -7,7 +7,7 @@ relative_permalinks: true
 # Setup
 title:               Mitchell Barron
 tagline:             Software Developer
-url:                 http://mitchellbarron.me
+url:                 http://mitchellbarron.io
 paginate:            1
 baseurl:             ""
 
@@ -17,12 +17,6 @@ baseurl:             ""
 sass:
   sass_dir:          _sass
   style:            :compressed
-
-# About/contact
-author:
-  name:              Mark Otto
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
 
 # Custom vars
 version:             1.0.0
