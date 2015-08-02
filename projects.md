@@ -1,12 +1,14 @@
 ---
-title: Projects
 layout: page
+title: Projects
 ---
 
-test.
-
 {% for project in site.projects %}
-  Here's a project:
-  {{ project.title }}
-  {{ project.excerpt }}
+
+### {{ project.title }}
+
+[more info]({{ project.url }}), [github]({{ project.github }})
+
+{{ project.excerpt }}
+
 {% endfor %}
