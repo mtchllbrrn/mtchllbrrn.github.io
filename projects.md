@@ -7,8 +7,6 @@ title: Projects
 
 ### {{ project.title }}
 
-[more info]({{ project.url }}), [github]({{ project.github }})
-
-{{ project.excerpt }}
+{{ project.content }}
 
 {% endfor %}
