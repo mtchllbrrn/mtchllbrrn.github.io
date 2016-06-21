@@ -91,7 +91,7 @@ I was happy to throw in the towel at this point. I went with a vanilla Nginx + P
 
 I have a couple more ideas that would be nice to have on the site. A "Worst Offenders" list would be interesting, if perhaps a little scary. Some establishments have 100+ violations over the last couple of years.
 
-Given the volume of data, I think it might also be interesting to perform some analystics. For instance, is there correlation between location and number of violations? A heatmap of the worst areas in town might be in order. Do high prices imply safety? Do certain cuisines end up being safer than others?
+Given the volume of data, I think it might also be interesting to perform some analytics. For instance, is there correlation between location and number of violations? A heatmap of the worst areas in town might be in order. Do high prices imply safety? Do certain cuisines end up being safer than others?
 
 ---
 <sub>1. Thanks to @savant in Freenode's #dokku channel for his/her help with this!</sub>
