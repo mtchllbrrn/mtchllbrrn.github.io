@@ -1,9 +1,9 @@
 # Navigation bar contents
 pages_list:
   About: '/about'
-  Blog: '/blog'
+  # Blog: '/blog'
   # Resume: '/resume'
-  Projects: '/projects'
+  # Projects: '/projects'
 
 # Collections
 collections:
