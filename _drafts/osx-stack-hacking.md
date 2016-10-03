@@ -4,7 +4,7 @@ title: "Full-Stack Window Management in OS X"
 permalink: /stack-hacking
 ---
 
-###Outline
+### Outline
 
 Concepts:
   - Context-less keybinds
@@ -54,5 +54,6 @@ Stack layers:
         with maestro.
     - Chrome-like tab-switching in tmux for super-duper mode (command+num
       / super-duper i/o)
+  - Alfred? General functionality.
   - Misc
     - Vimium / vimari (which sucks)
