@@ -13,9 +13,9 @@
         </h3>
 
         <nav>
-          <!-- {% for page in site.pages_list %} -->
-            <!-- <small><a class="nav-entry" href="{{ page[1] }}">{{ page[0] }}</a></small> -->
-          <!-- {% endfor %} -->
+          {% for page in site.pages_list %}
+            <small><a class="nav-entry" href="{{ page[1] }}">{{ page[0] }}</a></small>
+          {% endfor %}
         </nav>
       </header>
 
