@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Gratuitous macOS Stack-Hacking: Core"
+title: "Gratuitous macOS Stack-Hacking"
 permalink: /stack-hacking-core
 ---
 
@@ -31,8 +31,7 @@ This article will cover only what I consider the "core" of my stack. These
 apps offer functionality that is so useful that I would recommend it to
 *any* dev, regardless of their particular needs: simple
 app-switching/launching, window resizing, and universal vim-like text
-navigation. Future articles will discuss other tools, each of which offer
-an additional layer of functionality.
+navigation. 
 
 Many of my configurations are based on existing work from other
 developers.  I'll link to relevant articles for installation instructions,
