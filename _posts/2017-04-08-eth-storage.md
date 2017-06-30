@@ -17,3 +17,9 @@ Now we know it costs 20,000 gas to store a single 8-byte piece of data.  Let's p
 Gas price is variable, but let's assume a relatively thrifty 10 Gwei per gas (you are setting your own gas prices, right?).  ETH is currently hovering around $50, so that 8-byte piece of data costs `20,000 gas * (10 * 10^-9 ETH/gas) * (50 USD/1 ETH)` = 0.01 USD per 8-byte word.  That's 1.25 USD per kilobyte, and 1,250 USD per megabyte.  For a single gigabyte of storage, you can expect to pay *1,250,000 USD*.
 
 Why can't we store data on-chain?  We can, the only thing stopping you is astronomical expense compared to every other option under the sun.  This is why we resort to clever solutions, like storing the bulk data off-chain and hashes of the data on-chain, allowing users to easily verify the integrity of the data without actually paying the massive costs of storing on the blockchain itself.  
+
+*EDIT:  With ETH now around 300 USD (June 30), the figures above can be updated as follows:
+
+1 KB = 7.50 USD
+1 MB = 7,500 USD
+1 GB = 7,500,000 USD
