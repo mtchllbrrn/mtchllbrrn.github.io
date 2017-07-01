@@ -1,14 +1,12 @@
 ---
 layout: post
-title: "DRAFT: Securely Transferring your ETH Off an Exchange (When a Hardware Wallet Isn't an Option)"
+title: "Securely Transferring your ETH Off an Exchange (When a Hardware Wallet Isn't an Option)"
 permalink: /paper-wallet
 ---
 
-Storing large amounts of ETH on an exchange [is problematic](https://medium.com/@CodyBrown/how-to-lose-8k-worth-of-bitcoin-in-15-minutes-with-verizon-and-coinbase-com-ba75fb8d0bac).  With the rising value of ETH, it becomes more and more dangerous to store even small amounts on an exchange.  The most secure solution is to transfer your cryptocurrency to a hardware wallet.  Unfortunately, the Ethereum community's preferred hardware wallet, the [Ledger Nano S](https://www.ledgerwallet.com/products/12-ledger-nano-s), currently suffers a shipping time of over *two months* after placing your order.  Two months is a long time to leave your ETH on an exchange.
-
 Assuming the proper steps are taken during creation, paper wallets can be nearly as secure (though less convenient) than a hardware wallet.  Most importantly, they require no special hardware, and they allow you to transfer your ETH off of an exchange *right now*.  Ultimately, I suggest storing any large amounts of cryptocurrency on a hardware wallet, but this guide will help you stay secure in the meantime.
 
-*DISCLAIMER*:  This is crypto, and you are responsible for your own actions.  If you make a mistake, you might burn all of your ETH.  Depending on your level of confidence, it may be less risky to simply leave your ETH on an exchange.  I suggest reading through and [grokking](https://en.wikipedia.org/wiki/Grok) the entire guide before trying any of this.  It would be best to first run through the entire process on the testnet, or with only a negligible amount of ETH on mainnet, to ensure that you're not making a mistake along the way.
+*DISCLAIMER*:  Blockchain technology is the modern Wild West, and you are responsible for your own actions.  If you make a mistake, you might burn all of your ETH.  Depending on your level of confidence, it may be less risky to simply leave your ETH on an exchange.  I suggest reading through and [grokking](https://en.wikipedia.org/wiki/Grok) the entire guide before trying any of this.  It would be best to first run through the entire process on the testnet, or with only a negligible amount of ETH on mainnet, to ensure that you're not making a mistake along the way.
 
 # Overview
 
@@ -31,7 +29,7 @@ Go ahead and follow the [Tails installation guide](https://tails.boum.org/instal
 
 For key generation, we'll use [Ian Coleman's open-source BIP39 Tool](https://github.com/iancoleman/bip39).  Importantly, this tool can be run offline and will generate a BIP39 mnemonic, in addition to the corresponding private/public keypair and the public address.  The BIP39 mnemonic does not offer additional security over a raw keypair, but it does offer convenience:  The 24 words can be easily written and verified, unlike the raw keys and address.  This offers additional assurance that we won't make a mistake while writing our paper wallet. 
 
-Go ahead and download the tool.  If you're familiar with the command line and Javascript, I suggest reviewing the source code (located in `src/`) to your satisfaction and compiling with `python compile.py`.  Otherwise, you can show your trust in Mr. Coleman and the community behind him by simply downloading the compiled .html file [here](https://github.com/iancoleman/bip39/blob/master/bip39-standalone.html).  Whichever you choose, place the `bip39-standalone.html` file on the live USB (TODO:  Where?).
+Go ahead and download the tool.  If you're familiar with the command line and Javascript, I suggest reviewing the source code (located in `src/`) to your satisfaction and compiling with `python compile.py`.  Otherwise, you can show your trust in Mr. Coleman and the community behind him by simply downloading the compiled .html file [here](https://github.com/iancoleman/bip39/blob/master/bip39-standalone.html).  Whichever you choose, place the `bip39-standalone.html` file on the live USB (the root directory is fine).
 
 # Enter Your Secure Environment
 
