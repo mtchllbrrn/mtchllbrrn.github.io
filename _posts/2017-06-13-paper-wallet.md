@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Securely Transferring your ETH Off an Exchange (When a Hardware Wallet Isn't an Option)"
+title: "The Pretty Paranoid Guide to Transferring your ETH from an Exchange to a Paper Wallet"
 permalink: /paper-wallet
 ---
 
-Assuming the proper steps are taken during creation, paper wallets can be nearly as secure (though less convenient) than a hardware wallet.  Most importantly, they require no special hardware, and they allow you to transfer your ETH off of an exchange *right now*.  Ultimately, I suggest storing any large amounts of cryptocurrency on a hardware wallet, but this guide will help you stay secure in the meantime.
+Assuming the proper steps are taken during creation, paper wallets can be nearly as secure (though less convenient) than a hardware wallet.  Most importantly, they require no special hardware, and they allow you to transfer your ETH off of an exchange *right now*.  That's important, considering the current wait times for a Trezor or Ledger Nano S are more than two months.  Ultimately, I suggest storing any large amounts of cryptocurrency on a hardware wallet, but this guide will help you stay secure in the meantime.
 
 *DISCLAIMER*:  Blockchain technology is the modern Wild West, and you are responsible for your own actions.  If you make a mistake, you might burn all of your ETH.  Depending on your level of confidence, it may be less risky to simply leave your ETH on an exchange.  I suggest reading through and [grokking](https://en.wikipedia.org/wiki/Grok) the entire guide before trying any of this.  It would be best to first run through the entire process on the testnet, or with only a negligible amount of ETH on mainnet, to ensure that you're not making a mistake along the way.
 
@@ -48,7 +48,7 @@ Execute the `bip39-standalone.html` file.  This will open your web browser, but 
 
 3. Write down your BIP39 Mnemonic, shown in the "Mnemonic" section.  Write down the first address, public key, and private key listed in the Derived Addresses section (it's listed next to the `m/44'/0'/0'/0/0` path).  QUADRUPLE check that you've written the mnemonic, the keypair, and the address correctly.
 
-4. Say your prayers, take your vitamins, and transfer your ETH from the exchange to the newly-generated address.  Your paper wallet is complete.
+4. Say your prayers, take your vitamins, and transfer your ETH from the exchange to the newly-generated address.  Your paper wallet is complete.  Keep it secret, keep it safe.
 
 # How to Recover ETH from Your New Paper Wallet
 
