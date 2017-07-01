@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Blog
+redirect_from: "/"
 ---
 
 {% for post in site.posts %}

@@ -1,7 +1,6 @@
 ---
 layout: page
 title: About
-redirect_from: "/"
 ---
 
 I'm a software developer.
